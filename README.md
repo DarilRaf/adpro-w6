@@ -19,3 +19,6 @@ Finally it calls the "stream.write_all(response.as_bytes()).unwrap()" to send th
 ![alt text](commit3.png)
 With the updated code on the method, now the the server will serve the appropriate response on wether it's an appropriate request or not, each with their own respective html page.
 For the refactoring part, it reduces the duplication on the if else statement where both basically do the same thing with the only difference is on the status code and the html file that it returns. Instead, we should move all the other stuff outside the if else statement, and we just need to check the status code and returning the appropriate filename respectively.
+
+<h2>Commit 4 Reflection notes</h2>
+On this updated code, the path /sleep is returning the hello.html file, but with an additional 10 seconds of sleep that makes the page to load for 10 second before actually rendering the successful HTML page. While one browser opens the /sleep path, when we try to open another browser that connects to the home "/" path, it will need to wait for the previous session to be finished, which is ineffective in a nowadays browser.
