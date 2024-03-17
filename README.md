@@ -14,3 +14,8 @@ Then, the contents variable holds the string of the hello.html file that has bee
 And for the length var is just used for determining the length of the contents variable.
 Meanwhile, the response variable is to format all the necessary HTTP response from status, followed by the Content Length as a header and then the actual content read from hello.html.
 Finally it calls the "stream.write_all(response.as_bytes()).unwrap()" to send the constructed HTTP response back to the client.
+
+<h2>Commit 3 Reflection notes</h2>
+![alt text](commit3.png)
+With the updated code on the method, now the the server will serve the appropriate response on wether it's an appropriate request or not, each with their own respective html page.
+For the refactoring part, it reduces the duplication on the if else statement where both basically do the same thing with the only difference is on the status code and the html file that it returns. Instead, we should move all the other stuff outside the if else statement, and we just need to check the status code and returning the appropriate filename respectively.
